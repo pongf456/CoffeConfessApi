@@ -6,7 +6,8 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev src/index.ts",
-    "start": "tsc && node build/index.js"
+    "start": "tsc && node build/index.js",
+    "build":"tsc",
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,6 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.6",
     "ts-node-dev": "^2.0.0",
-     "build":"tsc",
     "typescript": "^5.3.3"
   },
   "dependencies": {

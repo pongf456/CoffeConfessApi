@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "start": "tsc && node build/index.js",
-    "build":"tsc"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +38,7 @@
     "mongoose-paginate-v2": "^1.8.0",
     "mongose": "^0.0.2-security",
     "node-cron": "^3.0.3",
+    "socket.io": "^4.7.4",
     "uuid": "^9.0.1"
   }
 }

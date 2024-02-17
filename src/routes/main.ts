@@ -7,6 +7,7 @@ import { auth_token } from "../models/auth_token"
 import { confess } from "../models/confess"
 import { roomValidate } from "../midlewares/roomValidate"
 import apiRateLimit from "../apiRateLimit"
+import { io } from ".."
 export const main = Router()
 
 main.post('/create/room',[
@@ -59,6 +60,7 @@ main.post('/create/confess',apiRateLimit,[
                     code:200,
                     context:"Confesion creada correctamente"
                 } as IServerResponse)
+                io.to(thisConfess.roomName).emit("confess",thisConfess.confess)
             }
             else {
                 res.status(400).end("Nombre de la sala invalido")
@@ -113,6 +115,7 @@ main.get("/room/:room",param("room").exists(),function (req:Request,res:Response
                 code:200,
                 context:"sala encontrada"
             } as IServerResponse)
+            io.to(req.params.room).emit("acceed")
           }
           else {
             res.status(404).end("sala no encontrada")

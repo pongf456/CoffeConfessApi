@@ -6,6 +6,9 @@ export interface Iroom {
     roomPassword:string
     _id:string
 }
+export interface IroomJWT extends Iroom, JwtPayload {
+
+}
 export interface IroomToken extends  JwtPayload, Iroom{
     
 }
@@ -23,3 +26,21 @@ export interface IServerResponse {
     context:string
     data?:any
 }
+
+export interface ServerToClientEvents {
+    confess: (message:string) => void
+    acceed: () => void
+  }
+  
+  export interface ClientToServerEvents {
+    hello: (data:string) => void;
+  }
+  
+  export interface InterServerEvents {
+    ping: () => void;
+  }
+  
+  export interface SocketData {
+    name: string;
+    age: number;
+  }
